@@ -15,7 +15,7 @@
 				    <div class="swiper-slide" spa-widget="scroll" data-scroll-id="activeScroll">
 				    	<div>
 				    		<div class="head">
-		                    	<img src="/course-footballSNS/images/arrow.png" width="40" height="40"/>
+		                    	<img src="/easy_work/img/arrow.png" width="40" height="40"/>
 		                    	<span>下拉刷新...</span>
 		            		</div>
 				    		<ol class="act_list" ms-repeat-value="livelist">
@@ -38,7 +38,7 @@
 				    		</li>
 				    	</ol>
 				    	<div class="foot">
-				            <img src="/course-footballSNS/images/arrow.png" width="40" height="40"/>
+				            <img src="/easy_work/img/arrow.png" width="40" height="40"/>
 				            <span>上拉加载更多...</span>
 			            </div>
 				    	</div>
@@ -50,7 +50,7 @@
 					    			<i>微课报名 | 父母--请做好孩子成长道路...</i>
 					    			<b>张三</b>
 					    		</li>
-					    		<li><img src="img/pic1.png"/></li>
+					    		<li><img src="/easy_work/img/pic1.png"/></li>
 					    		<li>
 					    			<span>
 					    				<i>活动时间：</i>
@@ -67,7 +67,7 @@
 				    			<i>微课报名 | 父母--请做好孩子成长道路...</i>
 				    			<b>张三</b>
 				    		</li>
-				    		<li><img src="img/pic1.png"/></li>
+				    		<li><img src="/easy_work/img/pic1.png"/></li>
 				    		<li>
 				    			<span>
 				    				<i>活动时间：</i>
@@ -84,7 +84,7 @@
 				    			<i>微课报名 | 父母--请做好孩子成长道路...</i>
 				    			<b>张三</b>
 				    		</li>
-				    		<li><img src="img/pic1.png"/></li>
+				    		<li><img src="/easy_work/img/pic1.png"/></li>
 				    		<li>
 				    			<span>
 				    				<i>活动时间：</i>

@@ -8,18 +8,19 @@ SPA.defineView("active",{
 			vm.livelist = [];
 		}
 	}],
-	
+
 	init:{
 		myswiper : null
 	},
-	
-	
+
+
 	bindEvents:{
 		beforeShow:function (){
 			var vm = this.getVM();
 			$.ajax({
 				type:"get",
-				url:"/api/getLivelist.php",
+				//url:"/api/getLivelist.php",
+				url:"/easy_work/data/active.json",
 				async:true,
 				data: {
 					rtype: "active-origin"
@@ -28,27 +29,27 @@ SPA.defineView("active",{
 					vm.livelist = res.data;
 				}
 			});
-			
+
 		},
-		
+
 		show:function () {
 			this.myswiper = new Swiper('#active-con',{
 				onSlideChangeStart: function (swiper) {
 			        var index = swiper.activeIndex;
-			        var $list = $('nav li');				
+			        var $list = $('nav li');
 			        					$list.eq(index).addClass('active').siblings().removeClass('active');
 		        }
 			});
-			
-			
+
+
 			  var _this = this;
-			
+
 			  var scrollSize = 30;
 		      var myScroll = this.widgets.activeScroll;
 		      myScroll.scrollBy(0, -scrollSize);
 			  //myScroll.y=0;
-		      
-				
+
+
 		      var head = $('.head img'),
 		          topImgHasClass = head.hasClass('up');
 		      var foot = $('.foot img'),
@@ -65,8 +66,8 @@ SPA.defineView("active",{
 		              return '';
 		          }
 		      });
-		      
-		      
+
+
 		       	myScroll.on('scrollEnd', function () {
           if (this.y >= -scrollSize && this.y < 0) {
               myScroll.scrollTo(0, -scrollSize);
@@ -79,27 +80,27 @@ SPA.defineView("active",{
                   myScroll.scrollTo(0, -scrollSize);
                   head.removeClass('up');
                   head.attr('src', '/easy_work/img/arrow.png');
-                 
+
                  vm = _this.getVM();
-                 
+
                 $.ajax({
 				type:"get",
-				//url:"/easy_work/data/livelist.json",
-				url:"/api/getLivelist.php",  
+				url:"/easy_work/data/active-refresh.json",
+				//url:"/api/getLivelist.php",
 				data:{
 					rtype:"active_refresh-origin"
 				},
 				success:function (res) {
 					console.log(res);
-					
+
 					var newDataArr =res.data;
 					newDataArr =  newDataArr.concat(dataArr);
-					vm.livelist = newDataArr; 
+					vm.livelist = newDataArr;
 				}
-			}); 
-                 
-                 
-                 
+			});
+
+
+
               }, 500);
           }
 
@@ -112,26 +113,27 @@ SPA.defineView("active",{
               foot.attr('src', '/easy_work/img/ajax-loader.gif');
               // ajax上拉加载数据
 				vm = _this.getVM();
-				
-					
+
+
                    setTimeout(function () {
 					$.ajax({
 						type:"get",
 						//url:"/easy_work/data/livelist.json",
-						url:"/api/getLivelist.php", 
+						//url:"/api/getLivelist.php",
+						url:"/easy_work/data/active-more.json",
 						data:{
 							rtype:"active_more-origin"
 						},
 						success:function (res) {
 							console.log(res);
 							var newDataArr = dataArr.concat(res.data);
-							vm.livelist = newDataArr; 
-							
+							vm.livelist = newDataArr;
+
 						}
 					});
-                 	
+
                      myScroll.refresh();
-                
+
                      //myScroll.scrollTo(0, self.y + scrollSize);
                      myScroll.scrollTo(0, self.y - scrollSize);
                      //myScroll.scrollTo(0, self.y);
@@ -140,13 +142,13 @@ SPA.defineView("active",{
                    }, 500);
           }
       })
-			
-			
+
+
 		}
-		
+
 	},
-	
-	
+
+
 	bindActions:{
 		'tabs-slide':function (e,data) {
 			this.myswiper.slideTo($(e.el).index());

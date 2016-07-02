@@ -1,14 +1,14 @@
 var tplWorkhelp = require("../templates/work-help.string");
 SPA.defineView("work-help",{
 	html:tplWorkhelp,
-	
+
 	plugins:["delegated",{
 		name: "avalon",
 		options: function(vm) {
 			vm.livelist = [];
 		}
 	}],
-	
+
 	bindEvents:{
 		beforeShow:function () {
 			var _this = this;
@@ -17,8 +17,8 @@ SPA.defineView("work-help",{
 
 			$.ajax({
 				type: "get",
-				//url:"/easy_work/data/livelist.json",
-				url: "/api/getLivelist.php", 
+				url:"/easy_work/data/work-help.json",
+				//url: "/api/getLivelist.php",
 				data: {
 					rtype: "work_help-origin"
 				},
@@ -27,20 +27,19 @@ SPA.defineView("work-help",{
 					dataArr = vm.livelist;
 				}
 			});
-			
-			
+
+
 		},
 		show:function () {
 			
-			
 			  var _this = this;
-			
+				var vm = _this.getVM();
 			  var scrollSize = 30;
 		      var myScroll = this.widgets.work_helpScroll;
 		      myScroll.scrollBy(0, -scrollSize);
 			  myScroll.y=0;
-		      
-				
+
+
 		      var head = $('.head img'),
 		          topImgHasClass = head.hasClass('up');
 		      var foot = $('.foot img'),
@@ -57,8 +56,8 @@ SPA.defineView("work-help",{
 		              return '';
 		          }
 		      });
-		      
-		      
+
+
 		       	myScroll.on('scrollEnd', function () {
           if (this.y >= -scrollSize && this.y < 0) {
               myScroll.scrollTo(0, -scrollSize);
@@ -71,25 +70,25 @@ SPA.defineView("work-help",{
                   myScroll.scrollTo(0, -scrollSize);
                   head.removeClass('up');
                   head.attr('src', '/easy_work/img/arrow.png');
-                 
+
                  vm = _this.getVM();
-                 
+
                 $.ajax({
 				type:"get",
-				//url:"/easy_work/data/livelist.json",
-				url:"/api/getLivelist.php",  
+				url:"/easy_work/data/work_help-refresh.json",
+				//url:"/api/getLivelist.php",
 				data:{
 					rtype:"work_help-refresh"
 				},
 				success:function (res) {
 					var newDataArr =res.data;
 					newDataArr =  newDataArr.concat(dataArr);
-					vm.livelist = newDataArr; 
+					vm.livelist = newDataArr;
 				}
-			}); 
-                 
-                 
-                 
+			});
+
+
+
               }, 500);
           }
 
@@ -102,25 +101,25 @@ SPA.defineView("work-help",{
               foot.attr('src', '/easy_work/img/ajax-loader.gif');
               // ajax上拉加载数据
 				//vm = _this.getVM();
-				
-					
+
+
                    setTimeout(function () {
 					$.ajax({
 						type:"get",
-						//url:"/easy_work/data/livelist.json",
-						url:"/api/getLivelist.php", 
+						url:"/easy_work/data/work_help-more.json",
+						//url:"/api/getLivelist.php",
 						data:{
 							rtype:"work_help-more"
 						},
 						success:function (res) {
 							var newDataArr = dataArr.concat(res.data);
-							vm.livelist = newDataArr; 
-							
+							vm.livelist = newDataArr;
+
 						}
 					});
-                 	
+
                      myScroll.refresh();
-                
+
                      //myScroll.scrollTo(0, self.y + scrollSize);
                      myScroll.scrollTo(0, self.y - scrollSize);
                      //myScroll.scrollTo(0, self.y);
@@ -129,18 +128,18 @@ SPA.defineView("work-help",{
                    }, 500);
           }
       })
-			
-			
-			
-			
-			
+
+
+
+
+
 		}
 	},
-	
+
 	bindActions:{
 		"goto-ask":function () {
 			SPA.open("ask-answer");
-			
+
 		},
 		"goto-issue":function () {
 			SPA.open("issue",{
@@ -148,11 +147,11 @@ SPA.defineView("work-help",{
 			          name: 'actionSheet',
 			          "autoHide": true,
 					  "distance": 0,
-					  "duration": 200, 
+					  "duration": 200,
 					  "showMask": true,
 					  "maskColor": "#000",
 					  "maskOpacity": "0.4"
-			          
+
 		        }
 //				ani: {
 //			          name: 'Popup',
@@ -174,11 +173,11 @@ SPA.defineView("work-help",{
 //					    "duration": 200,
 //					    "width": 280,
 //					    "height": 200
-//			          
+//
 //		        }
 			});
 		}
-	
-		
+
+
 	}
 })

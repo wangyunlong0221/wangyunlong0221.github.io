@@ -9,7 +9,7 @@
 	<div class="work_main" spa-widget="scroll" data-scroll-id="work_helpScroll">
 		<div>
 			<div class="head">
-                  <img src="/easy_work/images/arrow.png" width="40" height="40"/>
+                  <img src="/easy_work/img/arrow.png" width="40" height="40"/>
                   <span>下拉刷新...</span>
             </div>
 			<div class="work_con">
@@ -36,19 +36,22 @@
 				<h2>最新动态</h2>
 				<ul class="work_list" ms-repeat-value="livelist">
 					<li>
-						<span ms-src="value.user_head"><img src="img/work_help/shaiba.png"/></span>
+						<span>
+							<img ms-src="value.user_head"/>
+						</span>
 						<span>
 							<i ms-text="value.user"><em ms-text="value.time"></em></i>
-
-							<i ms-text="value.content">我就想测试一下</i>
-							<i ms-src="value.imgsrc"></i>
+							<i ms-text="value.content"></i>
+							<i>
+								<img ms-src="value.imgsrc"/>
+							</i>
 						</span>
-						<span><i>吐槽</i></span>
+						<span><i></i></span>
 					</li>
 					<li>
 						<span>
 							<i class="yo-ico">&#xe614;</i>
-							<b ms-text="value.add">北京市</b>
+							<b ms-text="value.add"></b>
 						</span>
 						<span>
 							<em>

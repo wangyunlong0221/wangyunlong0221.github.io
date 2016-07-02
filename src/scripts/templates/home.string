@@ -11,7 +11,7 @@
 		<div class="l-home" spa-widget="scroll" data-scroll-id="homeScroll">
 			<div class="scroll">
 				<div class="head">
-                      <img src="/course-footballSNS/images/arrow.png" width="40" height="40"/>
+                      <img src="/easy_work/img/arrow.png" width="40" height="40"/>
                       <span>下拉刷新...</span>
                 </div>
 				<div class="m-home">
@@ -36,7 +36,7 @@
 						<i><img src="/easy_work/img/home_shixi.png"/></i>
 						<b>实习</b>
 					</li>
-					<li>
+					<li action-type="saoyisao">
 						<i><img src="/easy_work/img/home_task.png"/></i>
 						<b>任务</b>
 					</li>
@@ -54,22 +54,22 @@
 							<img ms-src="value.imgsrc"/>
 						</li>
 						<li>
-							<i ms-text="value.company">佳偶hi吧</i>
-							<b ms-text="value.pay">30/天</b>
+							<i ms-text="value.company"></i>
+							<b ms-text="value.pay"></b>
 						</li>
 						<li>
 							<i class="yo-ico">&#xe614;</i>
-							<b ms-text="value.site">未知</b>
+							<b ms-text="value.site"></b>
 						</li>
 						<li>
-							<i ms-text="value.issutime">10小时前</i>
-							<b ms-text="value.jobtype">兼职</b>
+							<i ms-text="value.issutime"></i>
+							<b ms-text="value.jobtype"></b>
 						</li>
 					</ul>
 				</section>
 			</div>
 			<div class="foot">
-	            <img src="/easy_work/images/arrow.png" width="40" height="40"/>
+	            <img src="/easy_work/img/arrow.png" width="40" height="40"/>
 	            <span>上拉加载更多...</span>
           </div>
 			</div>

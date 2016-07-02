@@ -9,7 +9,7 @@
 		<div>
 			<div class="user_info">
 		<ul>
-			<li action-type="to-sign"><img src="img/pic1.png"/></li>
+			<li action-type="to-sign"><img src="/easy_work/img/pic1.png"/></li>
 			<li>user</li>
 			<li>大声说出你的青春宣言</li>
 		</ul>
@@ -76,5 +76,5 @@
 	</div>
 		</div>
 	</section>
-	
+
 </div>
